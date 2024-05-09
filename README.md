@@ -3,4 +3,5 @@ Laboratorio 2 para la asignatura de Paradigmas de Programación utilizando lengu
 * TDA Statiom
 * TDA Section
 * TDA Line
-> Bloque de código.
+> Cita asociada.
+` BLOQUE DE CÓDIGO NUEVO `
