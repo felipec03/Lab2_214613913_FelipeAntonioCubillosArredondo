@@ -1,7 +1,8 @@
-:- use_module('TDAsection').
+:- use_module(tda_section).
 % Constructor
-% Meta Principal
-% Metas secundarias
+% id (int) X name (string) X rail-type (string) X sections (List section) X Line
+% Meta Principal:
+% Metas secundarias: 
 line(Id,Name,RailType,Sections,[Id,Name,RailType,Sections]).
 
 % Getters
@@ -9,11 +10,11 @@ getLineSections(Line, SectionsOut):-
     line(_,_,_,LineList,Line),
     SectionsOut = LineList.
 
-% Metas Principales
-% Metas Secundarias
+%-------------- Requisitos Funcionales --------------
 
-% Requisitos Funcionales
+% Line Length
 % Se utiliza función interior para respetar dominio.
+
 lineLengthInterior([],0,0,0).
 lineLengthInterior([HeadSections|TailSections],Length,Distance,Cost):-
     lineLengthInterior(TailSections, AcumLength, AcumDistance, AcumCost),
@@ -25,6 +26,9 @@ lineLengthInterior([HeadSections|TailSections],Length,Distance,Cost):-
     Distance is AcumDistance + CurrentDistance,
     Cost is AcumCost + CurrentCost.
 
+% line (line) X length (int) X distance (Number) X cost (Number)
+% Metas Principales: 
+% Metas Secundarias: 
 lineLength(Line, LengthFinal, DistanceFinal, CostFinal):-
     getLineSections(Line, Sections),
     lineLengthInterior(Sections, LengthFinal, DistanceFinal, CostFinal).
@@ -47,3 +51,17 @@ getSubsectionMask(List,S1,S2,SubSection):-
 getSubsection(Line, Section1, Section2, SubSection):-
     getLineSections(Line, SectionList),
     getSubsectionMask(SectionList, Section1, Section2, SubSection).
+
+% line (line) X station1-name (String) X station2-name (String) X path (List Section) X distance (Number) X cost (Number)
+% Metas Principales: 
+% Metas Secundarias: 
+lineSectionLength(Line, Station1, Station2, SectionList, Distance, Cost):-
+
+
+% Line Add Section
+% line (Line) X section (Section) X lineOut (Line)
+lineAddSection(Line, Section, LineOut):-
+
+% Is Line
+% line (Line) -> bool.
+isLine(line):-

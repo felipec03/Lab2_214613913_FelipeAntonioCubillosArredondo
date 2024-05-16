@@ -1,9 +1,10 @@
-:- module('TDAstation',[station/5]).
+:- module(tda_station,[station/5]).
 % Constructor
-% Meta Principal
-% Metas secundarias
 % ID unico, usar check-duplicates
+% id (int) X name (String)  X type (stationType) X stopTime (positive integer) X Station
+% Meta Principal: 
+% Metas secundarias: 
 station(Id,Name,Type,StopTime,[Id,Name,Type,StopTime]):-
-    integer(Id).
+    integer(Id), string(Name), integer(StopTime); stopTime > 0.
 
 % Getters
