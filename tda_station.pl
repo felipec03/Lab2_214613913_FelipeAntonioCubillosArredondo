@@ -5,6 +5,6 @@
 % Meta Principal: 
 % Metas secundarias: 
 station(Id,Name,Type,StopTime,[Id,Name,Type,StopTime]):-
-    integer(Id), string(Name), integer(StopTime); stopTime > 0.
+    integer(Id), string(Name), integer(StopTime), StopTime > 0.
 
 % Getters

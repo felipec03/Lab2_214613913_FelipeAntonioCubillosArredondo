@@ -55,13 +55,18 @@ getSubsection(Line, Section1, Section2, SubSection):-
 % line (line) X station1-name (String) X station2-name (String) X path (List Section) X distance (Number) X cost (Number)
 % Metas Principales: 
 % Metas Secundarias: 
-lineSectionLength(Line, Station1, Station2, SectionList, Distance, Cost):-
+%lineSectionLength(Line, Station1, Station2, SectionList, Distance, Cost):-
 
 
 % Line Add Section
 % line (Line) X section (Section) X lineOut (Line)
 lineAddSection(Line, Section, LineOut):-
+    line(NewId, NewName, NewRailType, SectionList, Line),
+    \+ member(Section, SectionList),
+    append([SectionList], Section, NewSectionList),
+    line(NewId, NewName, NewRailType, NewSectionList, LineOut).
     
 % Is Line
 % line (Line) -> bool.
-isLine(line):-
+isLine(Line):-
+    line(_,_,_,SectionList,Line).
