@@ -12,7 +12,7 @@ getLineSections(Line, SectionsOut):-
 
 %-------------- Requisitos Funcionales --------------
 
-% Line Length
+% Line Length 
 % Se utiliza función interior para respetar dominio.
 
 lineLengthInterior([],0,0,0).
@@ -61,7 +61,7 @@ lineSectionLength(Line, Station1, Station2, SectionList, Distance, Cost):-
 % Line Add Section
 % line (Line) X section (Section) X lineOut (Line)
 lineAddSection(Line, Section, LineOut):-
-
+    
 % Is Line
 % line (Line) -> bool.
 isLine(line):-
