@@ -1,4 +1,6 @@
+:- module(tda_line, [line/5, lineLength/4, lineAddSection/3]).
 :- use_module(tda_section).
+
 % Constructor
 % id (int) X name (string) X rail-type (string) X sections (List section) X Line
 % Meta Principal:
@@ -69,4 +71,4 @@ lineAddSection(Line, Section, LineOut):-
 % Is Line
 % line (Line) -> bool.
 isLine(Line):-
-    line(_,_,_,SectionList,Line).
+    line(_,_,_,[HeadSectionList|TailSectionList],Line). 
