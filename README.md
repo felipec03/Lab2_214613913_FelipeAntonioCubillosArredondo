@@ -7,5 +7,19 @@ Laboratorio 2 para la asignatura de Paradigmas de Programación utilizando lengu
 * TDA Line:
     * Constructor **Falta verificación.**
     * lineLength
-    * lineSectionLength **En progreso, falta método de subsección**
+    * lineSectionLength **Incompleto, falta ahondar en subseccion usando first y second**
+    * lineAddSection
 * TDA Pcar:
+    * Constructor
+
+* TDA Train:
+    * Constructor
+    * trainAddCar
+    * trainRemoveCar
+    * trainCapacity
+
+* TDA Driver:
+    * Constructor
+
+* TDA Subway:
+    * Constructor
