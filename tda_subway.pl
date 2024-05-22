@@ -8,6 +8,8 @@ subway(Id, Nombre, [Id, Nombre, _, _, _]):-
     integer(Id), string(Nombre).
 
 % Requisitos Funcionales
+% sub (Subway) X trains (List Train) X SubwayOut (Subway)
 % Meta Principal:
 % Meta Secundaria: 
-%subwayAddTrain():-
+subwayAddTrain(Subway, Trains, SubwayOut):-
+    subway(_,_,Subway). 

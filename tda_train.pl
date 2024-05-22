@@ -31,7 +31,14 @@ trainRemoveCar(Train, Position, TrainOut):-
 % Train -> bool
 % Meta Principal: 
 % Metas secundarias: 
-%isTrain(Train):-
+isTrain(Train):-
+    train(_,_,_,_,[HeadPcarList|TailPcarList], Train),
+    last(TailPcarList, LastPcar),
+    pcar(_,_,_,FirstPcarType,HeadPcarList),
+    pcar(_,_,_,LastPcarType .,LastPcar),
+    HeadPcarType is LastPcarType,
+    HeadPcartype is "tr",
+    LastPcarType is "tr".
 
 % Train Capacity
 % Train X capacity (Number)

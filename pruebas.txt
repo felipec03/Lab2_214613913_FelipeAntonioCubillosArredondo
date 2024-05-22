@@ -45,12 +45,12 @@ lineLength(L2, LengthL2, DistanceL2, CostL2),
 
 lineAddSection(L1, S5, L1Nuevo),
 
-pcar(0, 20, "NS-74", tr, PC0),
-pcar(1, 20, "NS-74", ct, PC1),
-pcar(2, 20, "NS-74", ct, PC2),
-pcar(3, 20, "NS-74", ct, PC3),
-pcar(4, 20, "NS-74", ct, PC4),
-pcar(5, 20, "NS-74", tr, PC5),
+pcar(0, 20, "NS-74", "tr", PC0),
+pcar(1, 20, "NS-74", "ct", PC1),
+pcar(2, 20, "NS-74", "ct", PC2),
+pcar(3, 20, "NS-74", "ct", PC3),
+pcar(4, 20, "NS-74", "ct", PC4),
+pcar(5, 20, "NS-74", "tr", PC5),
 
 train(0, "Homero Simpson", "RailTypeGenerico", 100, [PC0, PC1, PC2, PC3], T0),
 
