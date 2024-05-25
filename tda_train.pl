@@ -31,6 +31,20 @@ trainRemoveCar(Train, Position, TrainOut):-
 % Train -> bool
 % Meta Principal: 
 % Metas secundarias: 
+
+% Función auxiliar para contar ocurrencias
+% Metas Principales
+% Metas Secundarias
+contar_ocurrencias(_, [], 0).
+contar_ocurrencias(Elemento, [Elemento|T], Contador) :-
+    contar_ocurrencias(Elemento, T, ContadorTemporal),
+    Contador is ContadorTemporal + 1.
+contar_ocurrencias(Elemento, [_|T], Contador) :-
+    contar_ocurrencias(Elemento, T, Contador).
+contar_sub_ocurrencias(Elemento, List, Contador):-
+    flatten(List, NewList),
+    contar_ocurrencias(Elemento, NewList, Contador).  
+
 isTrain(Train):-
     train(_,_,_,_,[HeadPcarList|TailPcarList], Train),
     last(TailPcarList, LastPcar),

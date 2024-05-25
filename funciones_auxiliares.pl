@@ -38,6 +38,9 @@ contar_ocurrencias(Elemento, [Elemento|T], Contador) :-
     Contador is ContadorTemporal + 1.
 contar_ocurrencias(Elemento, [_|T], Contador) :-
     contar_ocurrencias(Elemento, T, Contador).
+contar_sub_ocurrencias(Elemento, List, Contador):-
+    flatten(List, NewList),
+    contar_ocurrencias(Elemento, NewList, Contador).  
 
 % Metas Principales
 % Metas Secundarias
