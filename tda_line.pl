@@ -57,8 +57,11 @@ getSubsection(Line, Section1, Section2, SubSection):-
 % line (line) X station1-name (String) X station2-name (String) X path (List Section) X distance (Number) X cost (Number)
 % Metas Principales: 
 % Metas Secundarias: 
-%lineSectionLength(Line, Station1, Station2, SectionList, Distance, Cost):-
-
+lineSectionLength(Line, Station1, Station2, SectionList, Distance, Cost):-
+    section(Station1,_,_,_,Section1),
+    section(Station2,_,_,_,Section2),
+    getSubsection(Line, Section1, Section2, SubSectionList),
+    lineLengthInterior(SubSectionList, Length, Distance, Cost).
 
 % Line Add Section
 % line (Line) X section (Section) X lineOut (Line)
