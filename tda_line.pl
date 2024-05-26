@@ -1,4 +1,4 @@
-:- module(tda_line, [line/5, lineLength/4, lineAddSection/3]).
+:- module(tda_line, [line/5, getLineSections/2, lineLengthInterior/4, lineLength/4, miMember/3,  lineAddSection/3]).
 :- use_module(tda_section).
 
 % Constructor
@@ -24,7 +24,7 @@ lineLengthInterior([HeadSections|TailSections],Length,Distance,Cost):-
     getSectionDistance(HeadSections, CurrentDistance),
     getSectionCost(HeadSections, CurrentCost),
     
-    Length is AcumLength + 1,
+    Length is AcumLength + 2,
     Distance is AcumDistance + CurrentDistance,
     Cost is AcumCost + CurrentCost.
 

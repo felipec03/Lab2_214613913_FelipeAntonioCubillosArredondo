@@ -13,3 +13,15 @@ subway(Id, Nombre, [Id, Nombre, _, _, _]):-
 % Meta Secundaria: 
 subwayAddTrain(Subway, Trains, SubwayOut):-
     subway(_,_,Subway). 
+
+% sub (Subway) X lines (List Line) X SubwayOut (Subway)
+% Meta Principal:
+% Meta Secundaria: 
+subwayAddLine(Subway, Lines, SubwayOut):-
+    subway(_,_,Subway).
+
+% sub (Subway) X drivers (List Driver) X SubwayOut (Subway)
+% Meta Principal:
+% Meta Secundaria: 
+subwayAddLine(Subway, Lines, SubwayOut):-
+    subway(_,_,Subway).
