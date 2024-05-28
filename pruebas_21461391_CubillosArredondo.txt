@@ -1,0 +1,121 @@
+station(0, "San Pablo", "t", 20, ST0),
+station(1, "USACH", "r", 30, ST1),
+station(2, "Estacion Central", "r", 45, ST2),
+station(3, "ULA", "r", 45, ST3),
+station(4, "Republica", "r", 45, ST4),
+station(5, "Los Heroes", "c", 45, ST5),
+station(6, "Los Dominicos", "t", 35, ST6),
+
+station(7, "Plaza de Maipu", "t", 45,  ST7),
+station(8, "Plaza de Armas", "c", 45, ST8),
+station(9, "Bellas Artes", "r", 30, ST9),
+station(10, "Baquedano", "c", 40, ST10),
+station(11, "Vicente Valdés", "t", 50, ST11),
+
+station(12, "Vespucio Norte", "t", 40, ST12),
+station(13, "Cerro Blanco", "r", 50, ST13),
+station(14, "Patronato", "r", 45, ST14),
+station(15, "Puente Cal y Canto", "c", 40, ST15),
+station(16, "La Cisterna", "t", 30, ST16),
+
+station(17, "Puerto", "t", 40, ST17),
+station(18, "Bellavista", "r", 40, ST18),
+station(19, "Viña del Mar", "c", 40, ST19),
+station(20, "Hospital", "r", 45, ST20),
+station(21, "Chorrillos", "r", 45, ST21), 
+station(22, "El Salto", "r", 40, ST22),
+station(23, "Quilpue", "r", 30, ST23),
+station(24, "Peñablanca", "r", 35, ST24),
+station(25, "Limache", "t", 40, ST25),
+
+section(ST0, ST1, 2, 230, S0),
+section(ST1, ST2, 2.5, 230, S1),
+section(ST2, ST3, 1.5, 230, S2),
+section(ST3, ST4, 1, 230, S3),
+section(ST4, ST5, 3, 230, S4),
+section(ST5, ST6, 2, 230, S5), % Sección a agregar
+
+section(ST7, ST8, 3, 230, S6),
+section(ST8, ST9, 2, 230, S7),
+section(ST9, ST10, 1.5, 230, S8),
+section(ST10, ST11, 3, 230, S9), % Sección a agregar
+
+section(ST12, ST13, 1.5, 230, S10),
+section(ST13, ST14, 2, 230, S11),
+section(ST14, ST15, 3, 230, S12),
+section(ST15, ST16, 3.5, 230, S13), % Sección a agregar
+
+section(ST17, ST18, 1.5, 350, S14),
+section(ST18, ST19, 1, 350, S15),
+section(ST19, ST20, 2.5, 350, S16),
+section(ST20, ST21, 2, 350, S17),
+section(ST21, ST22, 2, 350, S18),
+section(ST22, ST23, 1.5, 350, S19),
+section(ST23, ST24, 3, 350, S20),
+section(ST24, ST25, 1.5, 350, S21),
+
+line(1, "Linea 1", "RailTypeGenerico", [S0, S1, S2, S3, S4], L1),
+line(2, "Linea 5", "RTG", [S6, S7, S8], L5),
+line(3, "Linea 2", "Plastico", [S10, S11, S12], L2),
+
+line(4, "Linea Limache", "UIC 60 ASCE", [S14, S15, S16, S17, S18, S19, S20, S21], LLimache),
+
+lineLength(L1, LengthL1, DistanceL1, CostL1),
+lineLength(L5, LengthL5, DistanceL5, CostL5),
+lineLength(L2, LengthL2, DistanceL2, CostL2),
+
+lineSectionLength(L1, "USACH", "Los Heroes", L1SectionPath, L1SectionDistance, L1SectionCost),
+
+lineAddSection(L1, S5, L1Nuevo),
+lineAddSection(L1, S9, L2Nuevo),
+lineAddSection(L1, S13, L3Nuevo),
+
+isLine(LLimache),
+
+% arroja false
+%isLine(L1),
+%isLine(L2), 
+%isLine(LLimache),
+
+pcar(0, 20, "NS-74", "tr", PC0),
+pcar(1, 20, "NS-74", "ct", PC1),    
+pcar(2, 20, "NS-74", "ct", PC2),
+pcar(3, 20, "NS-74", "ct", PC3),
+pcar(4, 20, "NS-74", "ct", PC4),
+pcar(5, 20, "NS-74", "tr", PC5),
+pcar(6, 10, "ABC", "tr", PC6), 
+pcar(7, 10, "ABC", "ct", PC7), 
+pcar(8, 10, "ABC", "ct", PC8), 
+pcar(9, 10, "ABC", "tr", PC9),
+
+train(0, "Homero Simpson", "RailTypeGenerico", 100, [PC0, PC1, PC2, PC3, PC5], T0),
+train(1, "Ned Flanders", "RailTypeEspecial", 120, [PC6, PC7, PC8, PC9], T1),
+
+trainAddCar(T0, PC4, 3, T0Added),
+
+trainRemoveCar(T0Added, 1, T0Removed),
+
+isTrain(T0),
+isTrain(T1),
+
+trainCapacity(T0, T0Capacity),
+
+driver(0, "Mario", "Nintendo", D0),
+driver(1, "Luigi", "Nintendo", D1),
+driver(2, "Peach", "Nintendo", D2),
+driver(3, "Toad", "Nintendo", D3),
+
+driver(4, "Sonic", "SEGA", D4), 
+driver(5, "Tails", "SEGA", D5),
+driver(6, "Knuckles", "SEGA", D6),
+
+subway(0, "Metro de Santiago", Sub0),
+subway(1, "Metro Valparaiso", Sub1),
+
+subwayAddTrain(Sub0, [T0], Sub0Train),
+subwayAddLine(Sub0, [L1, L5, L2], Sub0Line),
+subwayAddDriver(Sub0, [D0, D1, D2, D3], Sub0Driver),
+
+subwayAddTrain(Sub1, [T1], Sub1Train),
+subwayAddLine(Sub1, [LLimache], Sub1Line),
+subwayAddDriver(Sub1, [D4, D5, D6], Sub1Driver).

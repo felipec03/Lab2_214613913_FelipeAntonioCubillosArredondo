@@ -1,4 +1,4 @@
-:- module(tda_station,[station/5]).
+:- module(tda_station_21461391_CubillosArredondo,[station/5]).
 % Constructor
 % ID unico, usar check-duplicates
 % id (int) X name (String)  X type (stationType) X stopTime (positive integer) X Station
